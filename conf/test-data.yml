@@ -1,0 +1,49 @@
+# Clienti
+
+
+- !!models.Cliente
+    codiceFiscale:  123456
+    nome:       mario
+    cognome:    rossi
+
+
+- !!models.Cliente
+    codiceFiscale:  654321
+    nome:       luigi
+    cognome:    verdi
+
+
+#Attivita
+
+
+- !!models.Attivita
+    id:         1
+    nome:       attivita1
+    cliente:    !!models.Cliente
+                    codiceFiscale: 123456
+
+- !!models.Attivita
+    id:         2
+    nome:       attivita2
+    cliente:    !!models.Cliente
+                    codiceFiscale: 654321
+
+#Tecnici
+
+
+
+- !!models.Tecnico
+    email:      bob@gmail.com
+    nome:       Bob
+    password:   secret
+    lavori:
+        - !!models.Attivita
+            id: 1
+
+- !!models.Tecnico
+    email:      pat@gmail.com
+    nome:       pat
+    password:   secret2
+    lavori:
+        - !!models.Attivita
+            id: 2

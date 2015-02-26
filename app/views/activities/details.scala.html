@@ -1,0 +1,17 @@
+@(activityForm: Form[Attivita])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Activityform") {
+  <h1>Activity form</h1>
+  @helper.form(action = routes.Activities.save()) {
+    <fieldset>
+      <legend>Attività (@activityForm("nome").valueOr("New"))</legend>
+      @helper.inputText(activityForm("codice"), '_label -> "Codice")
+      @helper.inputText(activityForm("cliente"),'_label -> "Cliente")
+      @helper.textarea(activityForm("lavoro"), '_label -> "lavoro")
+    </fieldset>
+      <input type="submit" class="btn btn-primary" value="Save">
+    <a class="btn" href="@routes.Activities.list()">Cancel</a>
+  }
+}

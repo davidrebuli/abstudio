@@ -1,0 +1,17 @@
+@(clienteForm: Form[Cliente])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("clienteForm") {
+  <h1>Cliente form</h1>
+  @helper.form(action = routes.Clienti.save()) {
+    <fieldset>
+      <legend>Attività (@clienteForm("nome").valueOr("New"))</legend>
+      @helper.inputText(clienteForm("nome"), '_label -> "Nome")
+      @helper.inputText(clienteForm("cognome"),'_label -> "Cognome")
+      @helper.textarea(clienteForm("codiceFiscale"), '_label -> "Codice Fiscale")
+    </fieldset>
+      <input type="submit" class="btn btn-primary" value="Save">
+    <a class="btn" href="@routes.Clienti.list()">Cancel</a>
+  }
+}

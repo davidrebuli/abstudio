@@ -1,0 +1,35 @@
+@(clienti: List[Cliente])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Clienti") {
+    <header>
+        <hgroup>
+            <h1>CLIENTI</h1>
+        </hgroup>
+    </header>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Codice Fiscale</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    @for(cliente <- clienti) {
+
+      <tr>
+        <td><a href="@routes.Clienti.details(cliente.nome)">@cliente.nome</a></td>
+        <td><a href="@routes.Clienti.details(cliente.nome)">@cliente.cognome</a></td>
+        <td><a href="@routes.Clienti.details(cliente.nome)">@cliente.codiceFiscale</a></td>
+        <td><a href="@routes.Clienti.details(cliente.nome)"><i class="icon icon-pencil"></i></a>  
+        </td>
+      </tr>
+      }
+  
+    </tbody>
+   </table>
+}

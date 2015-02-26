@@ -1,0 +1,35 @@
+@(listAttivita: List[Attivita])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("Attivita") {
+    <header>
+        <hgroup>
+            <h1>LAVORI</h1>
+        </hgroup>
+    </header>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>codice</th>
+        <th>nome</th>
+        <th>cliente</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    @for(attivita <- listAttivita) {
+
+      <tr>
+        <td><a href="@routes.Activities.details(attivita.codice)">@attivita.codice</a></td>
+        <td><a href="@routes.Clienti.details(attivita.cliente.nome)">@attivita.cliente.nome</a></td>
+        <td><a href="@routes.Activities.details(attivita.codice)">@attivita.lavoro.descrizione</a></td>
+        <td><a href="@routes.Activities.details(attivita.codice)"><i class="icon icon-pencil"></i></a>  
+        </td>
+      </tr>
+      }
+  
+    </tbody>
+   </table>
+}
