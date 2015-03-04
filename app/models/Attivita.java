@@ -1,14 +1,17 @@
 package models;
 
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
+
+import play.mvc.PathBindable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Attivita extends Model {
+public class Attivita extends Model implements PathBindable<Attivita>{
 	
 	private static List<Attivita> activities;
 	
@@ -26,6 +29,7 @@ public class Attivita extends Model {
 	  
     @Id
     public Long id;
+    @Constraints.Required
     public String codice;
     public String nome;
 
@@ -50,6 +54,10 @@ public class Attivita extends Model {
     public Attivita(){
     }
     
+    public Attivita(String codice){
+    	this.codice = codice;
+    }
+    
     public Attivita(String codice, Cliente cliente, Lavoro lavoro){
     	this.codice = codice;
         this.cliente = cliente;
@@ -70,5 +78,20 @@ public class Attivita extends Model {
 
     public static Attivita findByEan(String codice) {
     	return find.where().eq("codice", codice).findUnique();
+    }
+    
+    @Override
+    public Attivita bind(String key, String value) {
+      return findByEan(value);
+    }
+    
+    @Override
+    public String unbind(String s) {
+      return this.codice;
+    }
+
+    @Override
+    public String javascriptUnbind() {
+      return this.codice;
     }
 }

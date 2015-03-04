@@ -31,6 +31,10 @@ public class Clienti extends Controller{
 		  return redirect(routes.Clienti.list());
 	  }
 	  
+	  public static Result newCliente() {
+		  return ok(details.render(clienteForm));
+	  }
+	  
 	  public static Result details(String nome) {
 		  final Cliente cliente = Cliente.findByName(nome);
 		  if (cliente == null) {

@@ -3,6 +3,9 @@ package controllers;
 import java.util.List;
 
 import models.Attivita;
+import models.Cliente;
+import models.Elaborato;
+import models.Lavoro;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -33,11 +36,11 @@ public class Activities extends Controller {
 		  return redirect(routes.Activities.list());
 	  }
 	  
-	  public static Result details(String codice) {
-		  final Attivita attivita = Attivita.findByEan(codice);
-		  if (attivita == null) {
-			  return notFound(String.format("L'attivita %s non esiste.", codice));
-		  }
+	  public static Result newActivity() {
+		  return ok(details.render(activityForm));
+	  }
+	  
+	  public static Result details(Attivita attivita) {
 
 		  Form<Attivita> filledForm = activityForm.fill(attivita);
 		  return ok(details.render(filledForm));

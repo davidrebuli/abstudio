@@ -2,19 +2,15 @@
 @import helper._
 @import helper.twitterBootstrap._
 
-@main("Attivita") {
-    <header>
-        <hgroup>
-            <h1>LAVORI</h1>
-        </hgroup>
-    </header>
+@main("Attività") {
 
+<div class="activities">
 <table class="table table-striped">
     <thead>
       <tr>
         <th>codice</th>
-        <th>nome</th>
         <th>cliente</th>
+        <th>nome</th>
         <th></th>
       </tr>
     </thead>
@@ -22,14 +18,17 @@
     @for(attivita <- listAttivita) {
 
       <tr>
-        <td><a href="@routes.Activities.details(attivita.codice)">@attivita.codice</a></td>
+        <td><a href="@routes.Activities.details(attivita)">@attivita.codice</a></td>
         <td><a href="@routes.Clienti.details(attivita.cliente.nome)">@attivita.cliente.nome</a></td>
-        <td><a href="@routes.Activities.details(attivita.codice)">@attivita.lavoro.descrizione</a></td>
-        <td><a href="@routes.Activities.details(attivita.codice)"><i class="icon icon-pencil"></i></a>  
+        <td><a href="@routes.Activities.details(attivita)">@attivita.lavoro.tipo</a></td>
+        <td><a href="@routes.Activities.details(attivita)"><i class="icon icon-pencil"></i></a>  
         </td>
       </tr>
       }
   
     </tbody>
    </table>
+    <a href="@routes.Activities.newActivity()" class="btn">
+    <i class="icon-plus"></i> Nuova attività</a>
+    </div>
 }

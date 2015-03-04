@@ -6,7 +6,7 @@
   <h1>Cliente form</h1>
   @helper.form(action = routes.Clienti.save()) {
     <fieldset>
-      <legend>Attività (@clienteForm("nome").valueOr("New"))</legend>
+      <legend>Cliente (@clienteForm("nome").valueOr("New"))</legend>
       @helper.inputText(clienteForm("nome"), '_label -> "Nome")
       @helper.inputText(clienteForm("cognome"),'_label -> "Cognome")
       @helper.textarea(clienteForm("codiceFiscale"), '_label -> "Codice Fiscale")

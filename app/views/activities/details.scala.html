@@ -7,9 +7,10 @@
   @helper.form(action = routes.Activities.save()) {
     <fieldset>
       <legend>Attività (@activityForm("nome").valueOr("New"))</legend>
+      <input type="hidden" value="@activityForm("id").valueOr("")" name="id"/>
       @helper.inputText(activityForm("codice"), '_label -> "Codice")
-      @helper.inputText(activityForm("cliente"),'_label -> "Cliente")
-      @helper.textarea(activityForm("lavoro"), '_label -> "lavoro")
+      @helper.inputText(activityForm("cliente.nome"),'_label -> "Cliente")
+      @helper.textarea(activityForm("lavoro.descrizione"), '_label -> "lavoro")
     </fieldset>
       <input type="submit" class="btn btn-primary" value="Save">
     <a class="btn" href="@routes.Activities.list()">Cancel</a>

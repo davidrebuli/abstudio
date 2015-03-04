@@ -1,6 +1,7 @@
 package models;
 
 
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
 import javax.persistence.*;
@@ -15,8 +16,10 @@ public class Cliente extends Model {
 	private static List<Cliente> clienti;
 	
     @Id
+    @Constraints.Required
     public String codiceFiscale;
     public int codice;
+    @Constraints.Required
     public String nome;
     public String cognome;
     public String luogoNascita;

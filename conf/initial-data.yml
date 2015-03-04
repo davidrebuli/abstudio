@@ -29,13 +29,13 @@
 
 - !!models.Lavoro
  ID:   1
- tipo:  55% VELOCE
- descrizione: Ampiamento eidficio residenziale 
+ tipo:  55%VELOCE
+ descrizione: "Ampiamento eidficio residenziale"
 
 - !!models.Lavoro
  ID:   2
- tipo:  CERTIFICAZIONE ENERGETICA
- descrizione: Ampliamento di un fabbricato per la realizzazzione di un autorimessa
+ tipo:  CERTIFICAZIONEENERGETICA
+ descrizione: "Ampliamento di un fabbricato per la realizzazzione di un autorimessa"
  
 #Elaborati
 

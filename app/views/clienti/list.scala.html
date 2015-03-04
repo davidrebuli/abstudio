@@ -3,11 +3,6 @@
 @import helper.twitterBootstrap._
 
 @main("Clienti") {
-    <header>
-        <hgroup>
-            <h1>CLIENTI</h1>
-        </hgroup>
-    </header>
 
 <table class="table table-striped">
     <thead>
@@ -32,4 +27,7 @@
   
     </tbody>
    </table>
+   
+     <a href="@routes.Clienti.newCliente()" class="btn">
+    <i class="icon-plus"></i> New cliente</a>
 }
