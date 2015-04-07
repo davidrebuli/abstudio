@@ -3,9 +3,6 @@ package controllers;
 import java.util.List;
 
 import models.Attivita;
-import models.Cliente;
-import models.Elaborato;
-import models.Lavoro;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;

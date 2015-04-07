@@ -4,8 +4,7 @@
 # --- !Ups
 
 create table attivita (
-  id                        bigint not null,
-  codice                    varchar(255),
+  codice                    varchar(255) not null,
   nome                      varchar(255),
   installatore_id           integer,
   cliente_codice_fiscale    varchar(255),
@@ -18,7 +17,7 @@ create table attivita (
   cap                       varchar(255),
   foglio                    integer,
   mappale                   varchar(255),
-  constraint pk_attivita primary key (id))
+  constraint pk_attivita primary key (codice))
 ;
 
 create table cliente (
@@ -40,10 +39,9 @@ create table cliente (
 ;
 
 create table elaborato (
-  id                        bigint not null,
-  codice                    varchar(255),
+  codice                    varchar(255) not null,
   descrizione               varchar(255),
-  constraint pk_elaborato primary key (id))
+  constraint pk_elaborato primary key (codice))
 ;
 
 create table installatore (
@@ -95,8 +93,8 @@ create table tecnico (
 
 create table lavoro_elaborato (
   lavoro_id                      bigint not null,
-  elaborato_id                   bigint not null,
-  constraint pk_lavoro_elaborato primary key (lavoro_id, elaborato_id))
+  elaborato_codice               varchar(255) not null,
+  constraint pk_lavoro_elaborato primary key (lavoro_id, elaborato_codice))
 ;
 create sequence attivita_seq;
 
@@ -123,7 +121,7 @@ create index ix_attivita_lavoro_4 on attivita (lavoro_id);
 
 alter table lavoro_elaborato add constraint fk_lavoro_elaborato_lavoro_01 foreign key (lavoro_id) references lavoro (id) on delete restrict on update restrict;
 
-alter table lavoro_elaborato add constraint fk_lavoro_elaborato_elaborato_02 foreign key (elaborato_id) references elaborato (id) on delete restrict on update restrict;
+alter table lavoro_elaborato add constraint fk_lavoro_elaborato_elaborato_02 foreign key (elaborato_codice) references elaborato (codice) on delete restrict on update restrict;
 
 # --- !Downs
 

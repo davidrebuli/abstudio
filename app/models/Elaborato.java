@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Entity
 public class Elaborato extends Model {
     @Id
-    private long ID;
     public String codice;
     public String descrizione;  
     

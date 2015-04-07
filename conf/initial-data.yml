@@ -30,12 +30,12 @@
 - !!models.Lavoro
  ID:   1
  tipo:  55%VELOCE
- descrizione: "Ampiamento eidficio residenziale"
+ descrizione: DESC1
 
 - !!models.Lavoro
  ID:   2
  tipo:  CERTIFICAZIONEENERGETICA
- descrizione: "Ampliamento di un fabbricato per la realizzazzione di un autorimessa"
+ descrizione: DESC2
  
 #Elaborati
 
@@ -50,7 +50,6 @@
 #Attivita
 
 - !!models.Attivita
-    id:         1
     codice:  1111111
     nome:       attivita1
     cliente:    !!models.Cliente
@@ -59,7 +58,6 @@
                     ID: 1
 
 - !!models.Attivita
-    id:         2
     codice:  222222
     nome:       attivita2
     cliente:    !!models.Cliente

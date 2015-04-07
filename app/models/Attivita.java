@@ -28,7 +28,6 @@ public class Attivita extends Model implements PathBindable<Attivita>{
 		  }*/
 	  
     @Id
-    public Long id;
     @Constraints.Required
     public String codice;
     public String nome;

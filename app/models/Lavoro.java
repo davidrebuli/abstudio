@@ -10,6 +10,8 @@ import javax.persistence.*;
 
 @Entity
 public class Lavoro extends Model {
+	private static List<Lavoro> lavori;
+	
     @Id
     public long ID;
     public String descrizione;
@@ -22,7 +24,8 @@ public class Lavoro extends Model {
     	
     }
     
-    public Lavoro(String tipo, String descrizione){
+    public Lavoro(long ID, String tipo, String descrizione){
+    	this.ID = ID;
     	this.tipo = tipo;
     	this.descrizione = descrizione;
     }
