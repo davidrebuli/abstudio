@@ -3,17 +3,19 @@ package models;
 import java.util.LinkedList;
 import java.util.List;
 
-import play.db.ebean.Model;
-import play.db.ebean.Model.Finder;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
-import javax.persistence.*;
+import play.db.ebean.Model;
 
 @Entity
 public class Lavoro extends Model {
-	private static List<Lavoro> lavori;
+	private static final long serialVersionUID = 1L;
 	
-    @Id
-    public long ID;
+	@Id
+    public Long id;
     public String descrizione;
     public String tipo;
 
@@ -25,12 +27,12 @@ public class Lavoro extends Model {
     }
     
     public Lavoro(long ID, String tipo, String descrizione){
-    	this.ID = ID;
+    	this.id = ID;
     	this.tipo = tipo;
     	this.descrizione = descrizione;
     }
     
-    public static Finder<String, Lavoro> find = new Finder<String, Lavoro>(
-            String.class, Lavoro.class
+    public static Model.Finder<Long, Lavoro> find = new Model.Finder<Long, Lavoro>(
+            Long.class, Lavoro.class
     );
 }

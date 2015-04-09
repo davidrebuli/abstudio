@@ -42,7 +42,7 @@ public class Cliente extends Model {
         this.codiceFiscale = codiceFiscale;
     }
 
-    public static Finder<String, Cliente> find = new Finder<String, Cliente>(
+    public static Model.Finder<String, Cliente> find = new Model.Finder<String, Cliente>(
             String.class, Cliente.class
     );
     

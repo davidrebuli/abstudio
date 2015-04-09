@@ -28,12 +28,12 @@
 #Lavori
 
 - !!models.Lavoro
- ID:   1
+ id:   1
  tipo:  55%VELOCE
  descrizione: DESC1
 
 - !!models.Lavoro
- ID:   2
+ id:   2
  tipo:  CERTIFICAZIONEENERGETICA
  descrizione: DESC2
  
@@ -55,7 +55,7 @@
     cliente:    !!models.Cliente
                     codiceFiscale: 123456
     lavoro:  !!models.Lavoro
-                    ID: 1
+                    id: 1
 
 - !!models.Attivita
     codice:  222222
@@ -63,5 +63,5 @@
     cliente:    !!models.Cliente
                     codiceFiscale: 654321
     lavoro:  !!models.Lavoro
-                    ID: 2
+                    id: 2
 

@@ -1,6 +1,7 @@
 @(activityForm: Form[Attivita])
 @import helper._
 @import helper.twitterBootstrap._
+@import models._
 
 @main("Activityform") {
   <h1>Activity form</h1>
@@ -8,8 +9,16 @@
     <fieldset>
       <legend>Attività (@activityForm("nome").valueOr("New"))</legend>
       @helper.inputText(activityForm("codice"), '_label -> "Codice")
-      @helper.inputText(activityForm("cliente"),'_label -> "Cliente")
-      @helper.textarea(activityForm("lavoro"), '_label -> "lavoro")
+      @helper.select(
+      	field = activityForm("cliente.codiceFiscale"), 
+      	options = Cliente.find.all.map(c => c.codiceFiscale  -> (c.cognome + " " + c.nome)),
+      	'_label -> "Cliente"
+      )
+      @helper.select(
+      	activityForm("lavoro.id"), 
+      	options = Lavoro.find.all.map(l => l.id.toString  -> (l.tipo+ " - " + l.descrizione)),
+      	'_label -> "Lavoro"
+      )
     </fieldset>
       <input type="submit" class="btn btn-primary" value="Save">
     <a class="btn" href="@routes.Activities.list()">Cancel</a>
